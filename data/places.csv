@@ -1,0 +1,99 @@
+name,place_id,country,region,tags,latitude,longitude,average_cost,description,popularity_score
+agra,p0,india,asia,"['Historical', 'Culture']",27.1767,78.0081,65.3,Home of the majestic Taj Mahal.,8.0
+amsterdam,p1,netherlands,europe,"['City', 'Culture']",52.3676,4.9041,140.5,Canals and vibrant cultural scene.,8.1
+angkor wat,p2,cambodia,asia,"['Historical', 'Culture']",13.4125,103.867,80.5,Ancient temples with intricate carvings.,8.7
+antelope canyon,p3,united states,americas,"['Nature', 'Adventure']",36.8619,-111.3743,110.3,Stunning slot canyons for photography.,8.4
+athens,p4,greece,europe,"['Historical', 'Culture']",37.9838,23.7275,100.7,Ancient ruins and Mediterranean vibes.,8.0
+auckland,p5,new zealand,oceania,"['City', 'Nature']",-36.8485,174.7633,120.7,Harbor city with volcanic landscapes.,8.0
+bali,p6,indonesia,asia,"['Beach', 'Relaxation']",-8.3405,115.092,70.65,Tropical paradise with rice terraces.,7.9
+banff,p7,canada,americas,"['Nature', 'Adventure']",51.1784,-115.5708,140.2,Rocky Mountain beauty with skiing.,8.6
+bangkok,p8,thailand,asia,"['City', 'Adventure']",13.7563,100.5018,80.25,Vibrant street markets and temples.,7.8
+barcelona,p9,spain,europe,"['Beach', 'Culture']",41.3851,2.1734,125.3,Artistic city with Gaudi architecture.,8.4
+beijing,p10,china,asia,"['Culture', 'Historical']",39.9042,116.4074,90.3,Forbidden City and Great Wall access.,8.2
+bora bora,p11,french polynesia,oceania,"['Beach', 'Luxury']",-16.5004,-151.7415,200.9,Crystal lagoons and overwater bungalows.,9.1
+bruges,p12,belgium,europe,"['Culture', 'Historical']",51.2093,3.2247,120.3,Medieval town with picturesque canals.,8.2
+budapest,p13,hungary,europe,"['City', 'Culture']",47.4979,19.0402,105.2,Thermal baths and grand architecture.,8.0
+cairo,p14,egypt,africa,"['Historical', 'Culture']",30.0444,31.2357,75.4,Ancient pyramids and bustling markets.,7.6
+cancun,p15,mexico,americas,"['Beach', 'Relaxation']",21.1619,-86.8515,95.6,Turquoise beaches and vibrant nightlife.,7.7
+cape cod,p16,united states,americas,"['Beach', 'Relaxation']",41.6688,-70.2962,130.4,Charming beaches and seaside towns.,7.8
+cape town,p17,south africa,africa,"['Nature', 'Adventure']",-33.9249,18.4241,90.3,Stunning views and Table Mountain.,7.5
+cape verde,p18,cape verde,africa,"['Beach', 'Relaxation']",16.5388,-23.0418,85.6,Tropical islands with vibrant culture.,7.6
+cartagena,p19,colombia,americas,"['Culture', 'Beach']",10.391,-75.4794,95.6,Colonial charm with Caribbean vibes.,7.9
+chiang mai,p20,thailand,asia,"['Culture', 'Nature']",18.7883,98.9853,70.2,Temples and mountains in serene setting.,7.7
+chicago,p21,united states,americas,"['City', 'Culture']",41.8781,-87.6298,140.5,Skyscrapers and deep-dish pizza.,8.1
+copenhagen,p22,denmark,europe,"['City', 'Culture']",55.6761,12.5683,145.5,Colorful waterfront and historic charm.,8.3
+cusco,p23,peru,americas,"['Adventure', 'Historical']",-13.532,-71.9675,85.7,Inca heritage and Andean culture.,8.2
+delhi,p24,india,asia,"['Culture', 'Historical']",28.7041,77.1025,70.2,Bustling capital with historic sites.,7.7
+dubai,p25,united arab emirates,asia,"['Luxury', 'City']",25.2048,55.2708,180.9,Skyscrapers and luxury shopping.,8.6
+dublin,p26,ireland,europe,"['City', 'Culture']",53.3498,-6.2603,135.8,Pubs and literary history.,8.0
+edinburgh,p27,united kingdom,europe,"['Culture', 'Historical']",55.9533,-3.1883,130.4,Castles and festivals in scenic hills.,8.1
+fiji,p28,fiji,oceania,"['Beach', 'Relaxation']",-17.7134,178.065,160.4,Tropical islands with coral reefs.,8.8
+florence,p29,italy,europe,"['Culture', 'Historical']",43.7696,11.2558,140.9,Renaissance art and stunning cathedrals.,8.5
+goa,p30,india,asia,"['Beach', 'Relaxation']",15.2993,73.912,75.8,Tropical beaches with vibrant culture.,7.8
+gran canaria,p31,spain,europe,"['Beach', 'Nature']",27.9202,-15.5474,110.2,Diverse landscapes with sandy beaches.,7.8
+granada,p32,spain,europe,"['Culture', 'Historical']",37.1773,-3.5986,105.7,Alhambra and Andalusian charm.,8.0
+great barrier reef,p33,australia,oceania,"['Nature', 'Adventure']",-18.2871,147.6992,145.7,World’s largest coral reef system.,8.9
+hanoi,p34,vietnam,asia,"['Culture', 'City']",21.0278,105.8342,60.5,Rich history with bustling streets.,7.6
+havana,p35,cuba,americas,"['Culture', 'Historical']",23.1136,-82.3666,80.3,Colorful streets and vintage cars.,7.8
+hawaii,p36,united states,americas,"['Beach', 'Nature']",21.3069,-157.8583,180.5,Volcanic islands with lush rainforests.,8.9
+helsinki,p37,finland,europe,"['City', 'Culture']",60.1699,24.9384,140.2,Modern design with coastal charm.,8.0
+ho chi minh city,p38,vietnam,asia,"['City', 'Culture']",10.7769,106.7009,65.2,Bustling city with historical sites.,7.5
+hong kong,p39,china,asia,"['City', 'Luxury']",22.3193,114.1694,160.2,Skyscrapers and vibrant markets.,8.5
+istanbul,p40,turkey,asia,"['Culture', 'Historical']",41.0082,28.9784,90.2,Blend of East and West with history.,8.3
+jaipur,p41,india,asia,"['Culture', 'Historical']",26.9124,75.7873,70.8,Pink City with forts and palaces.,7.9
+jakarta,p42,indonesia,asia,"['City', 'Culture']",-6.2088,106.8456,75.5,Bustling capital with diverse culture.,7.4
+johannesburg,p44,south africa,africa,"['City', 'Culture']",-26.2041,28.0473,90.4,Urban hub with historical significance.,7.4
+kathmandu,p45,nepal,asia,"['Culture', 'Adventure']",27.7172,85.324,65.8,Temples and Himalayan gateway.,7.9
+krakow,p46,poland,europe,"['Culture', 'Historical']",50.0647,19.945,100.6,Medieval city with vibrant squares.,7.9
+kuala lumpur,p47,malaysia,asia,"['City', 'Culture']",3.139,101.6869,80.3,Modern skyline with cultural markets.,7.7
+kyoto,p48,japan,asia,"['Culture', 'Historical']",35.0116,135.7681,110.1,Traditional temples and gardens.,8.0
+lake tahoe,p49,united states,americas,"['Nature', 'Adventure']",39.0968,-120.0324,130.6,Scenic lake with skiing and hiking.,8.3
+las vegas,p50,united states,americas,"['City', 'Luxury']",36.1699,-115.1398,170.5,Entertainment capital with casinos.,8.0
+lima,p51,peru,americas,"['City', 'Culture']",-12.0464,-77.0428,85.5,Coastal city with rich cuisine.,7.6
+lisbon,p52,portugal,europe,"['City', 'Culture']",38.7223,-9.1393,110.8,Historic charm with vibrant nightlife.,8.0
+london,p53,united kingdom,europe,"['City', 'Culture']",51.5074,-0.1278,165.1,Historic landmarks and diverse culture.,8.8
+machu picchu,p54,peru,americas,"['Adventure', 'Historical']",-13.1631,-72.545,110.7,Inca ruins in stunning mountains.,8.7
+madrid,p55,spain,europe,"['City', 'Culture']",40.4168,-3.7038,120.5,Art museums and lively plazas.,8.2
+maldives,p56,maldives,asia,"['Beach', 'Luxury']",3.2028,73.2207,200.6,Crystal waters and overwater villas.,9.0
+manila,p57,philippines,asia,"['City', 'Culture']",14.5995,120.9842,70.4,Historic sites and urban energy.,7.3
+marrakech,p58,morocco,africa,"['Culture', 'Historical']",31.6295,-7.9811,85.2,Colorful souks and historic palaces.,7.4
+maui,p59,united states,americas,"['Beach', 'Nature']",20.7984,-156.3319,175.8,Tropical paradise with scenic drives.,8.8
+melbourne,p60,australia,oceania,"['City', 'Culture']",-37.8136,144.9631,125.5,Artsy vibe with coffee culture.,8.3
+mexico city,p61,mexico,americas,"['City', 'Culture']",19.4326,-99.1332,90.4,Rich history with vibrant markets.,7.8
+miami,p62,united states,americas,"['Beach', 'City']",25.7617,-80.1918,150.8,Vibrant nightlife and sandy beaches.,8.1
+milan,p63,italy,europe,"['City', 'Luxury']",45.4642,9.19,150.3,Fashion capital with historic sites.,8.1
+montreal,p64,canada,americas,"['City', 'Culture']",45.5017,-73.5673,125.4,French flair with vibrant festivals.,8.0
+moscow,p65,russia,europe,"['City', 'Historical']",55.7558,37.6173,110.5,Red Square and grand architecture.,8.2
+munich,p66,germany,europe,"['City', 'Culture']",48.1351,11.582,135.3,Beer festivals and Bavarian charm.,8.1
+nairobi,p67,kenya,africa,"['Adventure', 'Nature']",-1.2921,36.8219,80.1,Safari gateway with vibrant culture.,7.5
+naples,p68,italy,europe,"['Culture', 'Historical']",40.8518,14.2681,110.6,Pizza and ancient ruins nearby.,7.9
+new york,p69,united states,americas,"['City', 'Luxury']",40.7128,-74.006,200.45,Bustling metropolis with skyscrapers.,9.1
+osaka,p70,japan,asia,"['City', 'Culture']",34.6937,135.5022,115.2,Foodie haven with modern attractions.,8.0
+oslo,p71,norway,europe,"['City', 'Nature']",59.9139,10.7522,150.3,Scenic fjords and modern architecture.,8.3
+paris,p72,france,europe,"['City', 'Culture', 'Historical']",48.8566,2.3522,150.75,Iconic city with art and history.,8.9
+patagonia,p73,argentina,americas,"['Nature', 'Adventure']",-50.45,-73.0333,110.9,Glaciers and rugged landscapes.,8.6
+petra,p74,jordan,asia,"['Historical', 'Adventure']",30.3285,35.4444,95.4,Ancient rock-cut city in desert.,8.8
+phnom penh,p75,cambodia,asia,"['Culture', 'Historical']",11.5564,104.9282,60.2,Royal palaces and vibrant markets.,7.4
+phuket,p76,thailand,asia,"['Beach', 'Relaxation']",7.8804,98.3923,85.5,Tropical beaches and vibrant nightlife.,7.9
+prague,p77,czech republic,europe,"['Culture', 'Historical']",50.0755,14.4378,105.6,Medieval charm with castles and bridges.,8.2
+quebec city,p78,canada,americas,"['Culture', 'Historical']",46.8139,-71.208,125.3,French charm with historic walls.,8.0
+queenstown,p79,new zealand,oceania,"['Adventure', 'Nature']",-45.0312,168.6626,120.85,Adventure capital with stunning views.,8.3
+reykjavik,p80,iceland,europe,"['Nature', 'Adventure']",64.1466,-21.9426,150.2,Northern lights and geothermal springs.,8.4
+rio de janeiro,p81,brazil,americas,"['Beach', 'City']",-22.9068,-43.1729,100.5,Famous for Carnival and beaches.,8.2
+rome,p82,italy,europe,"['Culture', 'Historical']",41.9028,12.4964,145.6,Ancient ruins and vibrant piazzas.,8.8
+san francisco,p83,united states,americas,"['City', 'Culture']",37.7749,-122.4194,160.8,Iconic bridge and tech hub.,8.5
+santorini,p84,greece,europe,"['Beach', 'Relaxation']",36.3932,25.4615,145.8,Whitewashed buildings and sunsets.,8.9
+seoul,p85,south korea,asia,"['City', 'Culture']",37.5665,126.978,100.25,Dynamic city with palaces and tech.,8.0
+seville,p86,spain,europe,"['Culture', 'Historical']",37.3891,-5.9845,115.6,Flamenco and historic architecture.,8.1
+shanghai,p87,china,asia,"['City', 'Luxury']",31.2304,121.4737,140.5,Modern skyline with historic sites.,8.3
+singapore,p88,singapore,asia,"['City', 'Luxury']",1.3521,103.8198,170.3,Futuristic city with gardens and tech.,8.6
+stockholm,p89,sweden,europe,"['City', 'Culture']",59.3293,18.0686,145.9,Scenic islands and historic charm.,8.3
+sydney,p90,australia,oceania,"['Beach', 'City']",-33.8688,151.2093,130.2,Harbor city with iconic opera house.,8.7
+taipei,p91,taiwan,asia,"['City', 'Culture']",25.033,121.5654,90.6,Night markets and modern skyline.,7.9
+tokyo,p93,japan,asia,"['City', 'Culture']",35.6762,139.6503,160.75,Modern metropolis with traditional roots.,8.8
+toronto,p94,canada,americas,"['City', 'Culture']",43.6532,-79.3832,135.2,Multicultural hub with iconic tower.,8.2
+vancouver,p95,canada,americas,"['City', 'Nature']",49.2827,-123.1207,140.7,Mountains and urban coastal charm.,8.4
+venice,p96,italy,europe,"['Culture', 'Historical']",45.4408,12.3155,155.2,Romantic canals and historic sites.,8.5
+vienna,p97,austria,europe,"['Culture', 'Historical']",48.2082,16.3738,140.1,Classical music and imperial palaces.,8.5
+yellowstone,p98,united states,americas,"['Nature', 'Adventure']",44.428,-110.5885,125.6,Geysers and wildlife in vast park.,8.7
+zurich,p99,switzerland,europe,"['City', 'Luxury']",47.3769,8.5417,180.7,Lakeside city with financial hub.,8.4
