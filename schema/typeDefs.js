@@ -72,6 +72,8 @@ const typeDefs = gql`
     placeAdded: Place
     reviewAdded: Review
     placeDeleted: String
+    placeUpdated: Place   # ← ajouter cette ligne
+
   }
 
 

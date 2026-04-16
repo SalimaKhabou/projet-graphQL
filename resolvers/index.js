@@ -30,6 +30,18 @@ const resolvers = {
       return await Rating.find({ place_id });
     },
   },
+  
+  //Query.ratings → “Fetch ratings by ID manually”
+  //Place.ratings → “Fetch ratings automatically when I fetch a place”
+
+  /*Aspect         	Query (root) 🧠	          Place (nested) 🧩
+  How it's used	    Called directly	          Called inside another query
+  Input	            Requires place_id	        Uses parent place
+  Context	          Independent             	Depends on Place
+  Flexibility      	More flexible           	More convenient*/
+
+  //Use nested (Place.ratings) for frontend convenience
+  //Use root query for filtering/searching
 
   Place: {
     reviews: async (place) => {
@@ -83,8 +95,13 @@ const resolvers = {
       return newPlace;
     },
 
-    updatePlace: async (_, { place_id, ...updates }) => {
+    /*updatePlace: async (_, { place_id, ...updates }) => {
       return await Place.findOneAndUpdate({ place_id }, updates, { new: true });
+    },*/
+    updatePlace: async (_, { place_id, ...updates }) => {
+      const updated = await Place.findOneAndUpdate({ place_id }, updates, { new: true });
+      pubsub.publish('PLACE_UPDATED', { placeUpdated: updated }); // ← ajouter
+      return updated;
     },
 
     deletePlace: async (_, { place_id }) => {
@@ -110,6 +127,9 @@ const resolvers = {
     },
     placeDeleted: {
         subscribe: () => pubsub.asyncIterableIterator(['PLACE_DELETED']),
+    },
+    placeUpdated: {                                                    // ← ajouter
+      subscribe: () => pubsub.asyncIterableIterator(['PLACE_UPDATED']),
     },
     },
 };
