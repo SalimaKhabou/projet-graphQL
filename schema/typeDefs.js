@@ -43,10 +43,25 @@ const typeDefs = gql`
     timestamp: String
   }
 
+  # [TRI] Enum pour le champ de tri
+  enum PlaceSortField {
+    name
+    average_cost
+    popularity_score
+  }
+
+  # [TRI] Enum pour l'ordre de tri
+  enum SortOrder {
+    ASC
+    DESC
+  }
+
   type Query {
-    places: [Place]
+    # [TRI] Ajout des arguments sortBy et order
+    places(sortBy: PlaceSortField, order: SortOrder): [Place]
     place(place_id: String!): Place
-    placesByCountry(country: String!): [Place]
+    # [TRI] Ajout des arguments sortBy et order
+    placesByCountry(country: String!, sortBy: PlaceSortField, order: SortOrder): [Place]
     users: [User]
     user(user_id: String!): User
     reviews(place_id: String!): [Review]
@@ -72,12 +87,8 @@ const typeDefs = gql`
     placeAdded: Place
     reviewAdded: Review
     placeDeleted: String
-    placeUpdated: Place   # ← ajouter cette ligne
-
+    placeUpdated: Place
   }
-
-
- 
 `;
 
 module.exports = typeDefs;

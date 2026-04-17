@@ -8,15 +8,24 @@ const pubsub = new PubSub();
 
 const resolvers = {
   Query: {
-    places: async () => {
-      return await Place.find({});
+    // [TRI] Ajout des arguments sortBy et order
+    places: async (_, { sortBy, order }) => {
+      const sortOptions = {};
+      if (sortBy) sortOptions[sortBy] = order === 'DESC' ? -1 : 1;
+      return await Place.find({}).sort(sortOptions);
     },
+
     place: async (_, { place_id }) => {
       return await Place.findOne({ place_id });
     },
-    placesByCountry: async (_, { country }) => {
-      return await Place.find({ country: new RegExp(country, 'i') });
+
+    // [TRI] Ajout des arguments sortBy et order
+    placesByCountry: async (_, { country, sortBy, order }) => {
+      const sortOptions = {};
+      if (sortBy) sortOptions[sortBy] = order === 'DESC' ? -1 : 1;
+      return await Place.find({ country: new RegExp(country, 'i') }).sort(sortOptions);
     },
+
     users: async () => {
       return await User.find({});
     },
@@ -30,15 +39,15 @@ const resolvers = {
       return await Rating.find({ place_id });
     },
   },
-  
-  //Query.ratings → “Fetch ratings by ID manually”
-  //Place.ratings → “Fetch ratings automatically when I fetch a place”
 
-  /*Aspect         	Query (root) 🧠	          Place (nested) 🧩
-  How it's used	    Called directly	          Called inside another query
-  Input	            Requires place_id	        Uses parent place
-  Context	          Independent             	Depends on Place
-  Flexibility      	More flexible           	More convenient*/
+  //Query.ratings → "Fetch ratings by ID manually"
+  //Place.ratings → "Fetch ratings automatically when I fetch a place"
+
+  /*Aspect            Query (root) 🧠             Place (nested) 🧩
+  How it's used       Called directly             Called inside another query
+  Input               Requires place_id           Uses parent place
+  Context             Independent                 Depends on Place
+  Flexibility         More flexible               More convenient*/
 
   //Use nested (Place.ratings) for frontend convenience
   //Use root query for filtering/searching
@@ -51,30 +60,7 @@ const resolvers = {
       return await Rating.find({ place_id: place.place_id });
     },
   },
-    //avec option 1
-  /*Query: {
-    places: async (_, { sortBy, sortOrder }) => {
-        const sort = {};
-        if (sortBy) sort[sortBy] = sortOrder === 'desc' ? -1 : 1;
-        return await Place.find({}).sort(sort);
-    },
 
-    place: async (_, { place_id }) => {
-        return await Place.findOne({ place_id });
-    },
-
-    placesByCountry: async (_, { country, sortBy, sortOrder }) => {
-        const sort = {};
-        if (sortBy) sort[sortBy] = sortOrder === 'desc' ? -1 : 1;
-        return await Place.find({ country: new RegExp(country, 'i') }).sort(sort);
-    },
-
-    users: async () => await User.find({}),
-    user: async (_, { user_id }) => await User.findOne({ user_id }),
-    reviews: async (_, { place_id }) => await Review.find({ place_id }),
-    ratings: async (_, { place_id }) => await Rating.find({ place_id }),
-    },
-*/
   Mutation: {
     addPlace: async (_, args) => {
       const allPlaces = await Place.find({}, { place_id: 1 });
@@ -95,12 +81,9 @@ const resolvers = {
       return newPlace;
     },
 
-    /*updatePlace: async (_, { place_id, ...updates }) => {
-      return await Place.findOneAndUpdate({ place_id }, updates, { new: true });
-    },*/
     updatePlace: async (_, { place_id, ...updates }) => {
       const updated = await Place.findOneAndUpdate({ place_id }, updates, { new: true });
-      pubsub.publish('PLACE_UPDATED', { placeUpdated: updated }); // ← ajouter
+      pubsub.publish('PLACE_UPDATED', { placeUpdated: updated });
       return updated;
     },
 
@@ -120,18 +103,18 @@ const resolvers = {
 
   Subscription: {
     placeAdded: {
-        subscribe: () => pubsub.asyncIterableIterator(['PLACE_ADDED']),
+      subscribe: () => pubsub.asyncIterableIterator(['PLACE_ADDED']),
     },
     reviewAdded: {
-        subscribe: () => pubsub.asyncIterableIterator(['REVIEW_ADDED']),
+      subscribe: () => pubsub.asyncIterableIterator(['REVIEW_ADDED']),
     },
     placeDeleted: {
-        subscribe: () => pubsub.asyncIterableIterator(['PLACE_DELETED']),
+      subscribe: () => pubsub.asyncIterableIterator(['PLACE_DELETED']),
     },
-    placeUpdated: {                                                    // ← ajouter
+    placeUpdated: {
       subscribe: () => pubsub.asyncIterableIterator(['PLACE_UPDATED']),
     },
-    },
+  },
 };
 
 module.exports = resolvers;
