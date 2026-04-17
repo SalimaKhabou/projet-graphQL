@@ -3,6 +3,9 @@ const Place = require('../models/Place');
 const User = require('../models/User');
 const Rating = require('../models/Rating');
 const Review = require('../models/Review');
+//pour keycloak : ajoutit ligne hedhy
+const { requireAuth } = require('../middleware/requireAuth');
+// w men baad bech nzid hedhy fi koll mutation pour les protéger: requireAuth(context); 
 
 const pubsub = new PubSub();
 
@@ -108,7 +111,9 @@ const resolvers = {
   },
 
   Mutation: {
-    addPlace: async (_, args) => {
+    addPlace: async (_, args, context) => {
+      //keycloak 
+      requireAuth(context);
       const allPlaces = await Place.find({}, { place_id: 1 });
       const maxNum = allPlaces.reduce((max, p) => {
         const num = parseInt(p.place_id.replace('p', ''));
@@ -127,19 +132,25 @@ const resolvers = {
       return newPlace;
     },
 
-    updatePlace: async (_, { place_id, ...updates }) => {
+    updatePlace: async (_, { place_id, ...updates }, context) => {
+      //keycloak 
+      requireAuth(context);
       const updated = await Place.findOneAndUpdate({ place_id }, updates, { new: true });
       pubsub.publish('PLACE_UPDATED', { placeUpdated: updated });
       return updated;
     },
 
-    deletePlace: async (_, { place_id }) => {
+    deletePlace: async (_, { place_id }, context) => {
+      //keycloak 
+      requireAuth(context);
       await Place.deleteOne({ place_id });
       pubsub.publish('PLACE_DELETED', { placeDeleted: place_id });
       return `Place ${place_id} supprimée`;
     },
 
-    addReview: async (_, args) => {
+    addReview: async (_, args, context) => {
+      //keycloak 
+      requireAuth(context);
       const review = new Review({ ...args, timestamp: new Date() });
       await review.save();
       pubsub.publish('REVIEW_ADDED', { reviewAdded: review });

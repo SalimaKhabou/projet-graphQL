@@ -1,16 +1,41 @@
-//j'ai fait ça pour option 1
-/*const validateCredentials = (req) => {
-  const clientId = req.headers['x-client-id'];
-  const clientSecret = req.headers['x-client-secret'];
+const jwt = require('jsonwebtoken');
+const jwksClient = require('jwks-rsa');
 
-  if (
-    clientId !== process.env.CLIENT_ID ||
-    clientSecret !== process.env.CLIENT_SECRET
-  ) {
-    throw new Error('Unauthorized: invalid client credentials');
+const client = jwksClient({
+  jwksUri: 'http://localhost:8080/realms/travel-realm/protocol/openid-connect/certs'
+});
+
+function getKey(header, callback) {
+  client.getSigningKey(header.kid, (err, key) => {
+    if (err) return callback(err);
+    callback(null, key.getPublicKey());
+  });
+}
+
+async function verifyToken(token) {
+  return new Promise((resolve, reject) => {
+    jwt.verify(token, getKey, {
+      issuer: 'http://localhost:8080/realms/travel-realm',
+      algorithms: ['RS256']
+    }, (err, decoded) => {
+      if (err) reject(err);
+      else resolve(decoded);
+    });
+  });
+}
+
+async function authMiddleware(req) {
+  const authHeader = req.headers.authorization || '';
+  if (!authHeader.startsWith('Bearer ')) return { user: null };
+
+  const token = authHeader.split(' ')[1];
+
+  try {
+    const user = await verifyToken(token);
+    return { user };
+  } catch {
+    return { user: null };
   }
+}
 
-  return true;
-};
-
-module.exports = { validateCredentials };*/
+module.exports = { authMiddleware };
