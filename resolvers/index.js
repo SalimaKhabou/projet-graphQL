@@ -9,10 +9,11 @@ const pubsub = new PubSub();
 const resolvers = {
   Query: {
     // [TRI] Ajout des arguments sortBy et order
-    places: async (_, { sortBy, order }) => {
+    //places: async (_, { sortBy, order }) => {
+    places: async (_, { sortBy, order, limit = 10, offset = 0 }) => {
       const sortOptions = {};
       if (sortBy) sortOptions[sortBy] = order === 'DESC' ? -1 : 1;
-      return await Place.find({}).sort(sortOptions);
+      return await Place.find({}).sort(sortOptions).skip(offset).limit(limit);
     },
 
     place: async (_, { place_id }) => {
@@ -20,10 +21,11 @@ const resolvers = {
     },
 
     // [TRI] Ajout des arguments sortBy et order
-    placesByCountry: async (_, { country, sortBy, order }) => {
+    //placesByCountry: async (_, { country, sortBy, order }) => {
+    placesByCountry: async (_, { country, sortBy, order, limit = 10, offset = 0 }) => {
       const sortOptions = {};
       if (sortBy) sortOptions[sortBy] = order === 'DESC' ? -1 : 1;
-      return await Place.find({ country: new RegExp(country, 'i') }).sort(sortOptions);
+      return await Place.find({ country: new RegExp(country, 'i') }).sort(sortOptions).skip(offset).limit(limit);
     },
 
     users: async () => {
