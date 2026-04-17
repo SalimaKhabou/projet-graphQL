@@ -59,7 +59,20 @@ const typeDefs = gql`
   type Query {
     # [TRI] Ajout des arguments sortBy et order
     #places(sortBy: PlaceSortField, order: SortOrder): [Place]
-    places(sortBy: PlaceSortField, order: SortOrder, limit: Int, offset: Int): [Place]
+    #avec pagination
+    #places(sortBy: PlaceSortField, order: SortOrder, limit: Int, offset: Int): [Place]
+    #avec filtrage
+    
+    places(
+      sortBy: PlaceSortField
+      order: SortOrder
+      limit: Int
+      offset: Int
+      country: String
+      region: String
+      minCost: Float
+      maxCost: Float
+    ): [Place]
     
 
     place(place_id: String!): Place

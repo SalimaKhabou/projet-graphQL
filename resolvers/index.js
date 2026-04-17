@@ -10,10 +10,54 @@ const resolvers = {
   Query: {
     // [TRI] Ajout des arguments sortBy et order
     //places: async (_, { sortBy, order }) => {
-    places: async (_, { sortBy, order, limit = 10, offset = 0 }) => {
+    //avec pagination 
+      /*places: async (_, { sortBy, order, limit = 10, offset = 0 }) => {
       const sortOptions = {};
       if (sortBy) sortOptions[sortBy] = order === 'DESC' ? -1 : 1;
       return await Place.find({}).sort(sortOptions).skip(offset).limit(limit);
+    },*/
+    //avec filtrage
+    places: async (_, args) => {
+      const {
+        sortBy,
+        order,
+        limit = 10,
+        offset = 0,
+        country,
+        region,
+        minCost,
+        maxCost
+      } = args;
+
+      const filter = {};
+
+      // 🔹 Filtre pays
+      if (country) {
+        filter.country = new RegExp(country, 'i');
+      }
+
+      // 🔹 Filtre région
+      if (region) {
+        filter.region = new RegExp(region, 'i');
+      }
+
+      // 🔹 Filtre coût
+      if (minCost || maxCost) {
+        filter.average_cost = {};
+        if (minCost) filter.average_cost.$gte = minCost;
+        if (maxCost) filter.average_cost.$lte = maxCost;
+      }
+
+      // 🔹 Tri
+      const sortOptions = {};
+      if (sortBy) {
+        sortOptions[sortBy] = order === 'DESC' ? -1 : 1;
+      }
+
+      return await Place.find(filter)
+        .sort(sortOptions)
+        .skip(offset)
+        .limit(limit);
     },
 
     place: async (_, { place_id }) => {
