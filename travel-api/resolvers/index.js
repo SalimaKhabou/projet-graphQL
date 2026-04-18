@@ -101,14 +101,27 @@ const resolvers = {
   //Use nested (Place.ratings) for frontend convenience
   //Use root query for filtering/searching
 
-  Place: {
+
+  //probléme ==> solution : dataloaders (pour éviter les requêtes N+1)
+  /*Place: {
     reviews: async (place) => {
       return await Review.find({ place_id: place.place_id });
     },
     ratings: async (place) => {
       return await Rating.find({ place_id: place.place_id });
     },
+  },*/
+
+  Place: {
+    reviews: async (place, _, context) => {
+      return context.loaders.reviewsLoader.load(place.place_id);
+    },
+    ratings: async (place, _, context) => {
+      return context.loaders.ratingsLoader.load(place.place_id);
+    },
   },
+
+
 
   Mutation: {
     addPlace: async (_, args, context) => {

@@ -13,6 +13,9 @@ const resolvers = require('./resolvers');
 // 🔐 Keycloak middleware : y3aytelha men houni
 const { authMiddleware } = require('./middleware/auth');
 
+// 🔥 DataLoaders
+const { reviewsLoader, ratingsLoader } = require('./loaders');
+
 async function startServer() {
   // 🔹 Connexion MongoDB
   await mongoose.connect(process.env.MONGODB_URI);
@@ -36,11 +39,21 @@ async function startServer() {
   const server = new ApolloServer({
     schema,
 
-    // 🔐 Injection utilisateur dans chaque requête
+    // 🔐 Injection utilisateur + loaders dans chaque requête
     context: async ({ req }) => {
       if (!req) return {}; // pour les subscriptions
+
       const auth = await authMiddleware(req);
-      return { ...auth };
+
+      return {
+        ...auth,
+
+        // 🔥 DataLoaders accessibles partout
+        loaders: {
+          reviewsLoader,
+          ratingsLoader
+        }
+      };
     },
 
     plugins: [
